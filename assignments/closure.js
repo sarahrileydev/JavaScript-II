@@ -1,6 +1,21 @@
 // ==== Challenge 1: Write your own closure ====
 // Write a simple closure of your own creation.  Keep it simple!
 
+function first() {
+  console.log("Hello World!");
+  const message = "I'm learning Javascript!"
+
+  function second() {
+    console.log(`Hello America!${message}`);
+
+    function third() {
+      console.log(`Hello Michigan! ${message}`);
+    }
+    third();
+  }
+  second();
+}
+first();
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
