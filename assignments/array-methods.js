@@ -56,28 +56,50 @@ const runners = [{"id":1,"first_name":"Charmain","last_name":"Seiler","email":"c
 // ==== Challenge 1: Use .forEach() ====
 // The event director needs both the first and last names of each runner for their running bibs.  Combine both the first and last names into a new array called fullName. 
 let fullName = [];
+runners.forEach(function(currentValue) {
+  return fullName.push(`${currentValue.first_name} ${currentValue.last_name}`);
+})
 console.log(fullName);
 
 // ==== Challenge 2: Use .map() ====
 // The event director needs to have all the runner's first names converted to uppercase because the director BECAME DRUNK WITH POWER. Convert each first name into all caps and log the result
-let allCaps = [];
+let allCaps = runners.map(function(currentValue) {
+  return currentValue.first_name.toUpperCase();
+});
 console.log(allCaps); 
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue.  Get a list of runners with large sized shirts so they can choose a different size. Return an array named largeShirts that contains information about the runners that have a shirt size of L and log the result
-let largeShirts = [];
+let largeShirts = runners.filter(function(currentValue) {
+    return currentValue.shirt_size === "L";
+});
 console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations into a ticketPriceTotal array and log the result
-let ticketPriceTotal = [];
+let ticketPriceTotal = runners.reduce(function(total, currentValue) {
+    return total + currentValue.donation;
+}, 0);
 console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
-// Problem 1
+// Problem 1 The company Kwimbee is offering a guest registration to each of its employees. Get a list of Mycat employees so they can be contacted with the special offer.
+let specialOffer = runners.filter(function(currentValue) {
+  return currentValue.company_name === "Kwimbee";
+});
+console.log(specialOffer);
 
-// Problem 2
+// Problem 2 The Big Boss wants a list of runners with runners whose last names contain 5 letters.
+let order = runners.filter(function(currentValue) {
+  return currentValue.last_name.length === 5;
+});
+console.log(order);
 
-// Problem 3
+// Problem 3 The Big Boss wants a list of id numbers and last names for the registration checklist. 
+let getId = [];
+runners.forEach(function(currentValue) {
+  return getId.push(`${currentValue.id} ${currentValue.last_name}`);
+});
+console.log(getId);
