@@ -77,6 +77,9 @@ function checkItems(item, list) {
     if (list[i] === item) {
       return true;
     }
+    else {
+      return false;
+    }
   }
 }
 console.log(contains("Gum", list, checkItems));
